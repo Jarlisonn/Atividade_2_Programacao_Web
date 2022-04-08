@@ -12,14 +12,8 @@ function validar() {
     let newsletter = document.getElementById("newsletter").checked;
     let filtroEmail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
     let filtroTelefone = /[(]*[0-9]{2}[)]*[0-9]{5}[-]*[0-9]{4}$/
-    let filtroCpf = /[0-9]{3}[\.][0-9]{3}[\.][0-9]{3}[-][0-9]{2}$/
+    //let filtroCpf = /[0-9]{3}[\.][0-9]{3}[\.][0-9]{3}[-][0-9]{2}$/
     let filtroUrl = /^(?:http(s):\/\/)+[github.com]+[\/][\w.-]+$/
-
-    if (nome.value == "") {
-        alert("Nome não informado");
-        nome.focus();
-        return;
-    }
 
     if (sobrenome.value == "") {
         alert("Sobrenome não informado");
@@ -61,18 +55,58 @@ function validar() {
 		email.focus();
         return;
 	}
-
-    if (cpf.value == "") {
-        alert("Cpf não informado");
+    if(cpf.value == ""){
+        alert("CPF não informado");
         cpf.focus();
-        return;
-    }else if(!filtroCpf.test(cpf.value)){
-        cpf.value = "";
-        alert("Formato de Cpf incorreto");
+        return; 
+    }else if(cpf.value.length > 11){
+        alert("Formato de CPF incorreto");
         cpf.focus();
         return;
     }
 
+    function verificarCPF(cpf){
+        var i;
+        s = cpf;
+        var cpf = s.substr(0,9);
+        var dv = s.substr(9,2);
+        var d1 = 0;
+        var v = false;
+     
+        for (i = 0; i < 9; i++){
+            d1 += cpf.charAt(i)*(10-i);
+        }
+        if (d1 == 0){
+            v = true;
+            return false;
+        }
+        d1 = 11 - (d1 % 11);
+        if (d1 > 9) d1 = 0;
+        if (dv.charAt(0) != d1){
+            v = true;
+            return false;
+        }
+     
+        d1 *= 2;
+        for (i = 0; i < 9; i++){
+            d1 += cpf.charAt(i)*(11-i);
+        }
+        d1 = 11 - (d1 % 11);
+        if (d1 > 9) d1 = 0;
+        if (dv.charAt(1) != d1){
+            v = true;
+            return false;
+        }
+        //if (!v) { alert(cpf + "\nCPF Válido")}
+    }
+
+    if(verificarCPF(cpf.value) == false){
+        alert("CPF Inválido")
+        cpf.focus();
+        return
+    }
+    
+    
     if (github.value == "") {
         alert("Url do perfil do github não informado");
         github.focus();
