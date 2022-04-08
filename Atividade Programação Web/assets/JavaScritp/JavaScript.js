@@ -11,7 +11,7 @@ function validar() {
     let sexo = document.getElementById("sexo");
     let newsletter = document.getElementById("newsletter").checked;
     let filtroEmail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
-    let filtroTelefone = /[(]*[0-9]{3}[)]*[0-9]{5}[-]*[0-9]{4}$/
+    let filtroTelefone = /[(]*[0-9]{2}[)]*[0-9]{5}[-]*[0-9]{4}$/
     let filtroCpf = /[0-9]{3}[\.][0-9]{3}[\.][0-9]{3}[-][0-9]{2}$/
     let filtroUrl = /^(?:http(s):\/\/)+[github.com]+[\/][\w.-]+$/
 
