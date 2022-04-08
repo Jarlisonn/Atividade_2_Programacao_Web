@@ -1,0 +1,70 @@
+body,header,img,h1,h2,main,section,p,footer{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+body{
+    background-color: #eeeeee;
+   
+}
+
+header{
+    background-color: #04133d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+
+header h1{
+    color: #fff;
+    margin-left: 5px;
+}
+
+main{
+    background-color: #fff;
+    color: #393cdd;
+    text-align: center;
+}
+section h3{
+    font-weight: 300;
+    text-align: left;
+}
+
+section h2{
+    font-weight: 400;
+    text-align: left;
+}
+
+section #Redes{
+    width: 1300px;
+    height: 400px;
+}
+
+section img{
+
+    width: 200px;
+    height: 200px;
+}
+
+
+section p{
+    margin: 10px 0;
+    text-align: left;
+}
+section ul{
+    margin: 10px 0;
+    text-align: left;
+}
+
+li{
+    text-align: left;
+    color: #393cdd;
+}
+
+footer{
+    height: 400px;
+    background-color: #04133d;
+}
